@@ -1,0 +1,27 @@
+{
+  "name": "grpc-test",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./server/index.js",
+  "scripts": {
+    "compile-js": "mkdir -p ./proto/build/js && cd ./proto/build/js && grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./ --grpc_out=./ --plugin=protoc-gen-grpc=./../../../node_modules/grpc-tools/bin/grpc_node_plugin --proto_path ./../../src greeter.proto",
+    "compile-web": "mkdir -p ./proto/build/web && cd ./proto/build/web && `which protoc` --plugin=\"protoc-gen-ts=./../../../node_modules/.bin/protoc-gen-ts\" --js_out=\"import_style=commonjs,binary:./\" --ts_out=\"service=true:./\" --proto_path ./../../src greeter.proto",
+    "start-proxy": "`which grpcwebproxy` --backend_addr=localhost:9000 --run_tls_server=false",
+    "start-web-client": "parcel client/web/src/index.html --out-dir client/web/build --open",
+    "start-server": "`which node` --no-deprecation ./server/index.js",
+    "call": "`which node` --no-deprecation ./client/cli/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "google-protobuf": "3.6.1",
+    "grpc": "1.15.1",
+    "grpc-web-client": "0.6.3"
+  },
+  "devDependencies": {
+    "grpc-tools": "1.6.6",
+    "parcel-bundler": "1.10.3",
+    "ts-protoc-gen": "0.7.7"
+  }
+}
