@@ -1,11 +1,11 @@
 # grpc-test 
 Esempio di soluzione basata su gRPC con server Node.js (compilato), client Node.js (riga di comando) e client JS browser (basato su grpc-web).  
+[Maggiori informazioni su gRPC static codegen per Node.js](https://github.com/grpc/grpc/tree/master/examples/node/static_codegen)
 
 ## Software richiesti
-- [Node.js]() con npm
-- [grpcwebproxy]()  
-- [protoc]()  
-- [grpc_tools_node_protoc]()
+- [Node.js](https://nodejs.org/) con npm  
+- [grpcwebproxy](https://github.com/improbable-eng/grpc-web/tree/master/go/grpcwebproxy)  
+- [protoc](https://github.com/protocolbuffers/protobuf)
 
 ## Istruzioni
 - Installa i software richiesti  
